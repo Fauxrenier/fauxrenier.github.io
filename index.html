@@ -3,207 +3,714 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dillon Pint | Mobile Developer</title>
+  <meta name="description" content="Dillon Pint - Lead Mobile Developer specializing in iOS, Android, React Native, enterprise mobility, and modernizing legacy applications." />
+  <title>Dillon Pint | Lead Mobile Developer</title>
   <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0f172a;
+      --card: rgba(255, 255, 255, 0.05);
+      --card-strong: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #34d399;
+      --accent-dark: #052e26;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #020617;
-      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(52, 211, 153, 0.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(96, 165, 250, 0.08), transparent 25%),
+        linear-gradient(180deg, #020617 0%, #08101f 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .container {
-      max-width: 1100px;
-      margin: auto;
+      max-width: var(--max-width);
+      margin: 0 auto;
       padding: 24px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(2, 6, 23, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 90px);
+      display: flex;
+      align-items: center;
+      padding: 34px 0 12px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1.45fr 0.95fr;
+      width: 100%;
     }
 
     .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 24px;
-      margin-bottom: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -90px auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(52,211,153,0.22), transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--accent);
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-size: 42px;
       margin: 0;
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
     }
 
-    h2 {
-      margin-top: 0;
+    .headline {
+      margin-top: 18px;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--muted);
+      max-width: 740px;
     }
 
-    .subtitle {
-      color: #94a3b8;
-      margin-top: 10px;
+    .hero-copy {
+      margin-top: 22px;
+      max-width: 720px;
+      font-size: 1.04rem;
+      color: #cbd5e1;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(16,185,129,0.15);
-      border: 1px solid rgba(16,185,129,0.3);
-      margin: 6px;
-      font-size: 14px;
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.14);
+      color: var(--text);
+    }
+
+    .snapshot {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .snapshot h2,
+    .section-title h2,
+    .card h2 {
+      margin: 0;
+      font-size: 1.7rem;
+    }
+
+    .snapshot-item {
+      padding: 14px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .snapshot-item:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .label {
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .value {
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.93rem;
     }
 
     .grid {
       display: grid;
-      gap: 20px;
+      gap: 24px;
     }
 
     .grid-2 {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.95fr 1.05fr;
     }
 
     .grid-3 {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (max-width: 768px) {
-      .grid-2, .grid-3 {
+    .content-card {
+      padding: 28px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.22);
+      color: #d1fae5;
+      font-size: 0.92rem;
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .project-card {
+      padding: 26px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(52, 211, 153, 0.28);
+      background: var(--card-strong);
+    }
+
+    .project-type {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+    }
+
+    .project-card h3 {
+      margin: 12px 0 10px;
+      font-size: 1.4rem;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .timeline-item {
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .timeline-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .timeline-company {
+      margin-top: 4px;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    .timeline-period {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .timeline-list {
+      margin: 16px 0 0;
+      padding-left: 18px;
+      color: #cbd5e1;
+    }
+
+    .timeline-list li + li {
+      margin-top: 10px;
+    }
+
+    .quote-card {
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(52,211,153,0.14), rgba(59,130,246,0.10));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    blockquote {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #ecfeff;
+    }
+
+    .contact-card {
+      padding: 30px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 11px 15px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text);
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(52, 211, 153, 0.30);
+    }
+
+    .footer {
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+        padding-top: 18px;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .stats {
         grid-template-columns: 1fr;
       }
-    }
 
-    .project {
-      transition: 0.2s ease;
-    }
+      .hero-card,
+      .snapshot,
+      .content-card,
+      .project-card,
+      .contact-card,
+      .quote-card {
+        padding: 24px;
+      }
 
-    .project:hover {
-      transform: translateY(-4px);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 10px;
-      text-decoration: none;
-      margin-right: 10px;
-      font-weight: 500;
-    }
-
-    .btn-primary {
-      background: #10b981;
-      color: #022c22;
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #e2e8f0;
-    }
-
-    ul {
-      padding-left: 20px;
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-
-    <!-- HERO -->
-    <div class="card">
-      <h1>Dillon Pint</h1>
-      <p class="subtitle">Lead Mobile Developer (iOS / Android / React Native)</p>
-      <p>
-        I build reliable apps, modernize legacy systems, and create software that solves real operational problems.
-      </p>
-
-      <a href="#experience" class="btn btn-primary">Experience</a>
-      <a href="#projects" class="btn btn-outline">Projects</a>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Dillon<span>.</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
+  </nav>
 
-    <!-- SKILLS + ABOUT -->
-    <div class="grid grid-2">
-      <div class="card">
-        <h2>Skills</h2>
-        <div>
+  <main class="container">
+    <section class="hero reveal">
+      <div class="hero-grid">
+        <div class="card hero-card">
+          <div class="eyebrow">Lead Mobile Developer</div>
+          <h1>Reliable mobile software for real-world work.</h1>
+          <p class="headline">
+            iOS, Android, and React Native developer with deep enterprise experience in modernization, device integrations, and long-lived production apps.
+          </p>
+          <p class="hero-copy">
+            I specialize in building stable, maintainable mobile applications where performance, reliability, and practical business value matter. My background spans native iOS and Android development, warehouse and operational tooling, rugged-device workflows, barcode and RFID integrations, and modern React Native migration work.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get In Touch</a>
+            <a class="btn btn-secondary" href="#projects">View Projects</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Years building mobile software</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Native platforms led in production</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Focused on practical, stable solutions</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card snapshot">
+          <div>
+            <div class="section-kicker">Quick Snapshot</div>
+            <h2>What I bring</h2>
+          </div>
+
+          <div class="snapshot-item">
+            <div class="label">Core Focus</div>
+            <div class="value">Native mobile development, React Native migration, enterprise modernization</div>
+          </div>
+
+          <div class="snapshot-item">
+            <div class="label">Strengths</div>
+            <div class="value">Performance, maintainability, hardware integration, product-minded execution</div>
+          </div>
+
+          <div class="snapshot-item">
+            <div class="label">Best Fit Work</div>
+            <div class="value">Impactful teams that need a senior builder who can ship, stabilize, and lead</div>
+          </div>
+
+          <div class="snapshot-item">
+            <div class="label">Recent Direction</div>
+            <div class="value">React Native modernization, developer tooling, and polished side projects</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section grid grid-2 reveal">
+      <div class="card content-card">
+        <div class="section-header">
+          <div class="section-kicker">About</div>
+          <h2>Built for the work that has to hold up</h2>
+        </div>
+        <p>
+          I have spent most of my career building software for environments where apps cannot be fragile. That includes warehouse operations, enterprise mobility, scanning workflows, and systems that need to stay dependable under real usage, not just in demos.
+        </p>
+        <p>
+          Alongside deep native experience in Objective-C and Java, I have been expanding into React Native and modernization work, helping bridge older codebases into maintainable, current platforms without losing performance or product quality.
+        </p>
+        <p class="muted">
+          I am especially strong when a team needs someone who can quickly understand a messy codebase, identify the real bottlenecks, and move it toward something cleaner, sturdier, and easier to maintain.
+        </p>
+      </div>
+
+      <div class="card content-card">
+        <div class="section-header">
+          <div class="section-kicker">Skills</div>
+          <h2>Technical strengths</h2>
+        </div>
+        <div class="badges">
           <span class="badge">Objective-C</span>
           <span class="badge">Java</span>
           <span class="badge">React Native</span>
           <span class="badge">iOS</span>
           <span class="badge">Android</span>
-          <span class="badge">RFID / Barcode</span>
+          <span class="badge">RFID Integration</span>
+          <span class="badge">Barcode Scanning</span>
           <span class="badge">REST APIs</span>
-          <span class="badge">Enterprise Apps</span>
+          <span class="badge">Legacy Modernization</span>
+          <span class="badge">Performance Tuning</span>
+          <span class="badge">Enterprise Mobility</span>
+          <span class="badge">Technical Leadership</span>
         </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h2>About</h2>
-        <p>
-          Senior mobile developer with deep native experience and active work in React Native.
-          Focused on performance, reliability, and real-world usability.
-        </p>
-        <p>
-          I enjoy impactful work, adapt quickly to new systems, and turn complex problems into stable solutions.
-        </p>
+    <section id="projects" class="section reveal">
+      <div class="section-header">
+        <div class="section-kicker">Selected Work</div>
+        <h2>Projects that show range</h2>
+        <p class="muted">A mix of enterprise depth, modernization work, and product-minded side projects.</p>
       </div>
-    </div>
 
-    <!-- PROJECTS -->
-    <div id="projects" class="card">
-      <h2>Projects</h2>
       <div class="grid grid-3">
-
-        <div class="card project">
+        <article class="card project-card">
+          <div class="project-type">React Native App</div>
           <h3>Journey Fast</h3>
-          <p><em>React Native fasting app</em></p>
-          <p>Timer progression, milestones, persistence, and clean UI.</p>
-        </div>
+          <p>
+            A fasting timer app with milestone logic, persistent sessions, history tracking, and a calm visual direction. Built as part of deeper hands-on React Native growth and product exploration.
+          </p>
+        </article>
 
-        <div class="card project">
+        <article class="card project-card">
+          <div class="project-type">Game Prototype</div>
           <h3>Thin Ice</h3>
-          <p><em>Roblox multiplayer game</em></p>
-          <p>Breakable tiles, physics combat, and survival gameplay.</p>
-        </div>
+          <p>
+            A multiplayer Roblox prototype centered on breakable tiles, survival pressure, and ability-driven combat. Useful as a showcase of rapid iteration, game feel, and systems design outside traditional enterprise work.
+          </p>
+        </article>
 
-        <div class="card project">
-          <h3>Warehouse Apps</h3>
-          <p><em>Enterprise mobile systems</em></p>
-          <p>Barcode scanning, RFID, rugged device workflows.</p>
-        </div>
-
+        <article class="card project-card">
+          <div class="project-type">Enterprise Systems</div>
+          <h3>Warehouse Mobility Apps</h3>
+          <p>
+            Production mobile apps for warehouse and operational environments, including rugged-device support, scanning flows, RFID integration, and user experiences built around reliability in the field.
+          </p>
+        </article>
       </div>
-    </div>
+    </section>
 
-    <!-- EXPERIENCE -->
-    <div id="experience" class="card">
-      <h2>Experience</h2>
+    <section id="experience" class="section reveal">
+      <div class="section-header">
+        <div class="section-kicker">Experience</div>
+        <h2>Professional background</h2>
+      </div>
 
-      <h3>Lead Mobile Developer</h3>
-      <p><strong>Appolis / Endpoint Automated Solutions</strong> (2015–2026)</p>
-      <ul>
-        <li>Built enterprise warehouse mobile apps</li>
-        <li>Led iOS (Objective-C) and Android (Java) development</li>
-        <li>Integrated RFID and scanning hardware</li>
-        <li>Modernized legacy codebases</li>
-      </ul>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-top">
+            <div>
+              <h3>Lead Mobile Developer</h3>
+              <div class="timeline-company">Appolis / Endpoint Automated Solutions</div>
+            </div>
+            <div class="timeline-period">2015–2026</div>
+          </div>
+          <ul class="timeline-list">
+            <li>Led development across native iOS and Android codebases supporting warehouse and enterprise operational workflows.</li>
+            <li>Built and maintained production features in Objective-C and Java for long-lived, business-critical mobile applications.</li>
+            <li>Integrated barcode scanning, RFID readers, rugged hardware, and device-specific functionality used in real operational environments.</li>
+            <li>Contributed to architecture decisions, modernization efforts, debugging strategy, and technical direction across legacy and evolving systems.</li>
+          </ul>
+        </div>
 
-      <h3>Mobile Developer</h3>
-      <p><strong>The Nerdery</strong> (2012–2015)</p>
-      <ul>
-        <li>Developed client mobile applications</li>
-        <li>Worked with cross-functional teams</li>
-      </ul>
+        <div class="timeline-item">
+          <div class="timeline-top">
+            <div>
+              <h3>Mobile Developer</h3>
+              <div class="timeline-company">The Nerdery</div>
+            </div>
+            <div class="timeline-period">2012–2015</div>
+          </div>
+          <ul class="timeline-list">
+            <li>Delivered mobile solutions for client projects across iOS and Android in collaborative, fast-moving product environments.</li>
+            <li>Worked with designers, QA, project teams, and stakeholders to ship polished apps for a range of business needs.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    </div>
+    <section class="section grid grid-2 reveal">
+      <div class="card quote-card">
+        <div class="section-kicker">Approach</div>
+        <blockquote>
+          I care about impactful work, not just maintaining code for the sake of it. I like stepping into complex systems, understanding what actually matters, and turning that into stable software that teams and users can rely on.
+        </blockquote>
+      </div>
 
-    <!-- CONTACT -->
-    <div class="card">
-      <h2>Contact</h2>
-      <p>Add your links here:</p>
-      <ul>
-        <li>Email</li>
-        <li>GitHub</li>
-        <li>LinkedIn</li>
-      </ul>
-    </div>
+      <div id="contact" class="card contact-card">
+        <div class="section-kicker">Contact</div>
+        <h2>Let’s connect</h2>
+        <p class="muted">
+          Add your real links here before publishing. This section is ready for email, GitHub, LinkedIn, and a downloadable resume.
+        </p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:you@example.com">Email</a>
+          <a class="contact-link" href="https://github.com/fauxrenier" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="contact-link" href="resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
+        </div>
+      </div>
+    </section>
 
-  </div>
+    <footer class="footer reveal">
+      Built by Dillon Pint · Hosted on GitHub Pages
+    </footer>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
 </body>
 </html>
