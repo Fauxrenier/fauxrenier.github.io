@@ -347,6 +347,13 @@
       color: #cbd5e1;
     }
 
+    .project-links {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
     .timeline {
       display: grid;
       gap: 18px;
@@ -599,38 +606,57 @@
     </section>
 
     <section id="projects" class="section reveal">
-      <div class="section-header">
-        <div class="section-kicker">Selected Work</div>
-        <h2>Projects that show range</h2>
-        <p class="muted">A mix of enterprise depth, modernization work, and product-minded side projects.</p>
-      </div>
+  <div class="section-header">
+    <div class="section-kicker">Selected Work</div>
+    <h2>Projects that show range</h2>
+    <p class="muted">
+      Enterprise-scale mobile systems, modern React Native work, and rapid product prototyping.
+    </p>
+  </div>
 
-      <div class="grid grid-3">
-        <article class="card project-card">
-          <div class="project-type">React Native App</div>
-          <h3>Journey Fast</h3>
-          <p>
-            A fasting timer app with milestone logic, persistent sessions, history tracking, and a calm visual direction. Built as part of deeper hands-on React Native growth and product exploration.
-          </p>
-        </article>
+  <div class="grid grid-3">
 
-        <article class="card project-card">
-          <div class="project-type">Game Prototype</div>
-          <h3>Thin Ice</h3>
-          <p>
-            A multiplayer Roblox prototype centered on breakable tiles, survival pressure, and ability-driven combat. Useful as a showcase of rapid iteration, game feel, and systems design outside traditional enterprise work.
-          </p>
-        </article>
+    <!-- Journey Fast -->
+    <article class="card project-card">
+      <div class="project-type">React Native App</div>
+      <h3>Journey Fast</h3>
+      <p>
+        Built a production-style fasting app in React Native with persistent session tracking, milestone-based progression, and custom UI components. Focused on state management, time-based logic, and delivering a smooth, user-driven experience.
+      </p>
 
-        <article class="card project-card">
-          <div class="project-type">Enterprise Systems</div>
-          <h3>Warehouse Mobility Apps</h3>
-          <p>
-            Production mobile apps for warehouse and operational environments, including rugged-device support, scanning flows, RFID integration, and user experiences built around reliability in the field.
-          </p>
-        </article>
-      </div>
-    </section>
+      <div class="project-links">
+    <a href="https://apps.apple.com/your-app" target="_blank" class="btn btn-secondary">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=your.app" target="_blank" class="btn btn-secondary">Google Play</a>
+  </div>
+    </article>
+
+    <!-- Warehouse Apps -->
+    <article class="card project-card">
+      <div class="project-type">Enterprise Systems</div>
+      <h3>Warehouse Mobility Apps</h3>
+      <p>
+        <p>
+  Led development on publicly available enterprise mobile applications used in warehouse operations. Built and maintained core features including barcode scanning, RFID workflows, and rugged device integrations, with a strong focus on performance, reliability, and real-world usage at scale.
+</p>
+      </p>
+
+      <div class="project-links">
+    <a href="https://apps.apple.com/us/app/endpoint-enterprise/id1054058839" target="_blank" class="btn btn-secondary">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.appolis.androidtablet" target="_blank" class="btn btn-secondary">Google Play</a>
+  </div>
+    </article>
+
+    <!-- Ice Breaker -->
+    <article class="card project-card">
+      <div class="project-type">Game Prototype</div>
+      <h3>Ice Breaker</h3>
+      <p>
+        Developed a multiplayer game prototype focused on fast iteration and gameplay systems, including destructible environments, player abilities, and physics-driven interactions. Demonstrates versatility beyond enterprise development.
+      </p>
+    </article>
+
+  </div>
+</section>
 
     <section id="experience" class="section reveal">
       <div class="section-header">
@@ -643,7 +669,7 @@
           <div class="timeline-top">
             <div>
               <h3>Lead Mobile Developer</h3>
-              <div class="timeline-company">Appolis / Endpoint Automated Solutions</div>
+              <div class="timeline-company">Endpoint Automated Solutions</div>
             </div>
             <div class="timeline-period">2015–2026</div>
           </div>
@@ -686,7 +712,7 @@
           Add your real links here before publishing. This section is ready for email, GitHub, LinkedIn, and a downloadable resume.
         </p>
         <div class="contact-links">
-          <a class="contact-link" href="mailto:you@example.com">Email</a>
+          <a class="contact-link" href="mailto:dillonpint@gmail.com">Email</a>
           <a class="contact-link" href="https://github.com/fauxrenier" target="_blank" rel="noreferrer">GitHub</a>
           <a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a class="contact-link" href="resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
